@@ -18,5 +18,7 @@ class MainActivity : AppCompatActivity()
         //这里如果想获取配置什么的,可以这样写：
         //Mall.getConfiguration<Context>(GlobalKeys.APPLICATION_CONTEXT)
 
+        //******
+
     }
 }
