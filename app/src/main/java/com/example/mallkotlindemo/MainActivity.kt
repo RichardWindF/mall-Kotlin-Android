@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity()
         //Mall.getConfiguration<Context>(GlobalKeys.APPLICATION_CONTEXT)
 
         //******
+        
 
     }
 }

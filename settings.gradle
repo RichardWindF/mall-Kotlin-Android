@@ -1,3 +1,4 @@
 rootProject.name = "mall-kotlin-demo"
 include ':app'
 include ':mall-library'
+

@@ -30,7 +30,6 @@ class Configurator private constructor()                 //即不能new 的
         //private val mHandler=MyHandler()   //现在好像只能这样，一个类继承抽象类Handler，实现方法，。。然后这里使用
 
         private val mHandler=android.os.Handler()
-
     }
 
     //-------------------------------------------------------------

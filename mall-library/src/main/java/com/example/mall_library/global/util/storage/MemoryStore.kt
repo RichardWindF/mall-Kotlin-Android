@@ -7,23 +7,25 @@ import com.example.mall_library.global.GlobalKeys
  * 这里使用-静态内部类的方法
  *
  */
-class MemoryStore private constructor()     //不能new 的
+class   MemoryStore private constructor()     //不能new 的
 {
     /**  存储配置的容器？
      * 线程安全的单例模式
      * 深入学习可以仿照Java写法
      */
+
     private object Holder
     {
         internal val INSTANCE=MemoryStore()
-        //internal --模块内可见
+        //internal --模块内可
+
     }
 
     companion object
     {
         val instance:MemoryStore                //内部类？
         get()=Holder.INSTANCE                   //??
-        
+
     }
     
     //---------------------------------
@@ -33,7 +35,7 @@ class MemoryStore private constructor()     //不能new 的
 
     //-----------------------------------------------------------------------------------
     //fun getData(key: String):Any?{ return mDataMap[key]} //为什么不用这个呢，当返回不确定时候？
-    fun <T> getData(key: String):T   //用泛型表示不确定性：-）
+    fun  <T> getData(key: String):T   //用泛型表示不确定性：-）
     {
         @Suppress("UNCHECKED_CAST")
         return mDataMap[key] as T        //前面小黄灯，点击生成上面注解，不点也没关系，没有提示
@@ -68,13 +70,10 @@ class MemoryStore private constructor()     //不能new 的
 
     fun <T> getData(key: Enum<*>):T   //用泛型表示不确定性：-）
     {
-
         @Suppress("UNCHECKED_CAST")
         //前面小黄灯，点击生成上面注解，不点也没关系，没有提示
         //return mDataMap.get(key.name) as T        //或者
         return getData(key.name)
     }
     //这样就能够比较统一的管理 各种 tag 了
-
-
 }
