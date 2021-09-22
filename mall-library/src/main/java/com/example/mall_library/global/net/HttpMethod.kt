@@ -1,7 +1,7 @@
 package com.example.mall_library.global.net
 
 enum class HttpMethod
-{
+{  //Http的注解
     GET,
     POST,
     PUT,
