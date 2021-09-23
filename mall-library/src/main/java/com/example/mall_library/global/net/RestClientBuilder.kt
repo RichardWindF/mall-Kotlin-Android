@@ -1,6 +1,5 @@
 package com.example.mall_library.global.net
 
-import android.icu.number.IntegerWidth
 import com.example.mall_library.global.net.callback.*
 import java.util.*
 import kotlin.collections.HashSet
@@ -18,6 +17,7 @@ class RestClientBuilder(
     private var complete:IComplete?=null
 )
 {
+
     private val mParams=WeakHashMap<String,Any>()
 
     fun url(url:String):RestClientBuilder                   //类似set()传入参数？
@@ -54,10 +54,9 @@ class RestClientBuilder(
         return this
     }
 
-    fun failure(iFailure: IFailure):RestClientBuilder
+    fun failure(iFailure:IFailure):RestClientBuilder
     {
-        this.failure=iFailure
-        return this
+        this.failure=iFailure;    return this
     }
 
     fun error(iError: IError):RestClientBuilder
@@ -75,9 +74,10 @@ class RestClientBuilder(
     fun build():RestClient
     {
         return RestClient(
-            url,
+            url,mParams,
             request,success,
             failure,error,complete)
     }
 
 }
+

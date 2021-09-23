@@ -15,7 +15,8 @@ import kotlin.time.toDuration
  * 2：创建Retrofit  的客户端 RestCreator的方法，创建Retrofit 的各个实例
  *
  */
-class RestCreator private constructor() {
+object RestCreator {  //静态（static）类，kotlin 中用object--不能构造方法？
+    //class RestCreator private constructor() {  //静态（static）类，kotlin 中用object
     private object OkHttpHolder
     { //构建OkHttp
 
