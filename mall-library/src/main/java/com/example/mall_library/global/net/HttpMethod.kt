@@ -6,7 +6,9 @@ enum class HttpMethod
     POST,
     PUT,
     DELETE,
-    UPLOAD     //上传
+
+    UPLOAD,    //上传
+    DOWNLOAD
 }
 
 //retrofit 的官网上有这个用法，要先建 service 接口什么的
