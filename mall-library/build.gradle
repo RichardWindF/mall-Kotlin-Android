@@ -44,4 +44,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    //如果要解析返回的字符串，要加下面这句,..?
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
 }
