@@ -2,4 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mall_library">
 
+    <!--网络请求一定要加许可-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 </manifest>

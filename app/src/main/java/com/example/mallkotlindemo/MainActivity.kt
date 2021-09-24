@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.widget.Toast
 import com.example.mall_library.global.GlobalKeys
 import com.example.mall_library.global.Mall
 import com.example.mall_library.global.net.RestClient
@@ -21,11 +22,15 @@ class MainActivity : AppCompatActivity() {
 
         RestClient                       //比较舒服的方式网络请求，测试
             .builder()         //创建一个builder，然后依次传入参数
-            .url("")
+            .url("http://mock.fulingjie.com/mock/api/index.php")   //这是搭建好的用于测试的API
             .params("", "")
             .success(object : ISuccess {                  //成功与否的回调，其它几个也可以回调
                 override fun onSuccess(response: String) {
                     //TODO("Not yet implemented")
+                    Toast.makeText(baseContext,response,Toast.LENGTH_LONG).show()
+                   // Toast.makeText(this,response,Toast.LENGTH_LONG).show()
+                   // 不可以,注意这里不是 this, 是baseContext
+                    //baseContext-getBaseContext()-getApplicationContext()
                 }
             })     //当然也可以加入回调
             .failure(object:IFailure{
