@@ -2,6 +2,7 @@ package com.example.mall_library.global
 
 import com.example.mall_library.global.util.storage.MemoryStore
 import java.lang.RuntimeException
+import java.util.concurrent.Delayed
 import java.util.logging.Handler
 
 /**
@@ -57,6 +58,12 @@ class Configurator private constructor()                 //即不能new 的
     fun withApiHost(host:String):Configurator  //也是为了顺溜着设置，所以返回值为Configurator
     {
         mStore.addData(GlobalKeys.API_HOST,host)
+        return this
+    }
+
+    fun withLoaderDelayed(delayed: Long):Configurator           //添加
+    {
+        mStore.addData(GlobalKeys.LOADER_DELAYED,delayed)
         return this
     }
 

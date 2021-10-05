@@ -14,8 +14,10 @@ class MallExampleApp:Application()          //继承Application
 
        // Mall().xx        //此时 Mall.XX 出不来，发现 Mall.kt 中类要是静态的 object 类名,否则就只能Mall().XX
        Mall.init(this)
+           .withLoaderDelayed(2000)           //测试延迟2秒
            //.withApiHost("http://123.123.com")       //之后使用远程部署的测试数据
-           .withApiHost("http://mock.fulingjie.com/mock/api/")  //注意最后的斜杠一定要有
+           //.withApiHost("http://mock.fulingjie.com/mock/api/")  //注意最后的斜杠一定要有
+           .withApiHost("http://www.51.ca/")  //注意最后的斜杠一定要有
            .configure()                       // 这样写，这里如果很多要配置，就能不断的 .xxx, 很舒适流畅
 
 

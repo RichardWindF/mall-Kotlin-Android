@@ -1,6 +1,9 @@
 package com.example.mall_library.global.net
 
+import android.content.Context
 import com.example.mall_library.global.net.callback.*
+import com.example.mall_library.global.ui.loader.LoaderStyles
+import com.example.mall_library.global.ui.loader.MallLoader
 import retrofit2.Call
 import retrofit2.Callback
 import java.util.*
@@ -15,7 +18,11 @@ class RestClient internal constructor(
     private var success: ISuccess?,
     private var failure: IFailure?,
     private var error: IError?,
-    private var complete: IComplete?
+    private var complete: IComplete?,
+
+    private var context: Context?,               //添加这2个
+    private val loaderStyle: LoaderStyles?
+
 ){
     companion object
     {
@@ -32,6 +39,11 @@ class RestClient internal constructor(
         val call: Call<String>?       //这些是retrofit or okhttp 的用法，用时去查文档
         request?.onRequestStart()
 
+        if (loaderStyle!=null)
+        {                    //添加
+            MallLoader.showLoading(context, loaderStyle)
+            //Kotlin中不可更改得值，尽量用val ,比如这里  loaderStyle
+        }
         call=when(method)           //when 有红线提示，保持已有。。。
         {
             HttpMethod.GET -> service.get(url,params)
@@ -48,7 +60,7 @@ class RestClient internal constructor(
     }
 
     private val requestCallback:Callback<String>
-    get()=RequestCallbacks(request,success,failure,error,complete)
+    get()=RequestCallbacks(request,success,failure,error,complete,loaderStyle)
 
 
 

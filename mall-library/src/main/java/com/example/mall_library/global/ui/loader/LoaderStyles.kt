@@ -1,6 +1,6 @@
 package com.example.mall_library.global.ui.loader
 
-enum class LoderStyles
+enum class LoaderStyles
 {
     //官方网址上拷贝下来的各种 loader对应的图标名
     //Row 1

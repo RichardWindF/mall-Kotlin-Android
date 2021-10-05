@@ -10,6 +10,7 @@ import com.example.mall_library.global.Mall
 import com.example.mall_library.global.net.RestClient
 import com.example.mall_library.global.net.callback.IFailure
 import com.example.mall_library.global.net.callback.ISuccess
+import com.example.mall_library.global.ui.loader.LoaderStyles
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         RestClient                       //比较舒服的方式网络请求，测试
             .builder()         //创建一个builder，然后依次传入参数
-            .url("http://mock.fulingjie.com/mock/api/index.php")   //这是搭建好的用于测试的API
+            //.url("http://mock.fulingjie.com/mock/api/index.php")   //这是搭建好的用于测试的API
+            .url("http://www.51.ca/index.php")   //这是搭建好的用于测试的API
+            .loader(this@MainActivity,LoaderStyles.LineSpinFadeLoaderIndicator)        //this@MainActivity
             .params("", "")
             .success(object : ISuccess {                  //成功与否的回调，其它几个也可以回调
                 override fun onSuccess(response: String) {

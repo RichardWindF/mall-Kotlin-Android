@@ -1,6 +1,8 @@
 package com.example.mall_library.global
 
+import android.app.Application
 import android.content.Context
+import com.blankj.utilcode.util.Utils
 import com.example.mall_library.global.util.storage.MemoryStore
 
 //class Mall      //这里要是静态的类?-否则那边Mall.XX 点不出来,就只能 Mall().xx 了。换成下面这个就可以了
@@ -20,6 +22,8 @@ object Mall      //这里要是静态的类-否则那边Mall.XX 点不出来,就
             .addData(
                 GlobalKeys.APPLICATION_CONTEXT,
                 context.applicationContext)       //就把全局的context 存在了MemoryStore 里面
+
+        Utils.init(Application())      //外库 AndroidUtilsCode 中的"初始化工具类” 初始化好了。。。
 
         return Configurator.instance
     }

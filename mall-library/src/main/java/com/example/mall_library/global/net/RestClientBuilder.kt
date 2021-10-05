@@ -1,6 +1,8 @@
 package com.example.mall_library.global.net
 
+import android.content.Context
 import com.example.mall_library.global.net.callback.*
+import com.example.mall_library.global.ui.loader.LoaderStyles
 import java.util.*
 import kotlin.collections.HashSet
 
@@ -14,7 +16,10 @@ class RestClientBuilder(
     private var success:ISuccess?=null,
     private var failure:IFailure?=null,
     private var error: IError?=null,
-    private var complete:IComplete?=null
+    private var complete:IComplete?=null,
+
+    private var context: Context?=null,             //加这两个参数及初始化器loader()
+    private var loaderStyles: LoaderStyles?=null
 )
 {
 
@@ -59,15 +64,29 @@ class RestClientBuilder(
         this.failure=iFailure;    return this
     }
 
+    fun complete(iComplete: IComplete):RestClientBuilder
+    {
+        this.complete=iComplete
+        return this
+    }
+
     fun error(iError: IError):RestClientBuilder
     {
         this.error=iError
         return this
     }
 
-    fun complete(iComplete: IComplete):RestClientBuilder
+    fun loader(context: Context,style: LoaderStyles):RestClientBuilder
     {
-        this.complete=iComplete
+        this.context=context
+        this.loaderStyles=style
+        return this
+    }
+
+    fun loader(context: Context):RestClientBuilder
+    {
+        this.context=context
+        this.loaderStyles=LoaderStyles.BallClipRotateMultipleIndicator   //默认
         return this
     }
 
@@ -76,7 +95,10 @@ class RestClientBuilder(
         return RestClient(
             url,mParams,
             request,success,
-            failure,error,complete)
+            failure,error,complete,
+            context,loaderStyles              //添加
+
+        )
     }
 
 }

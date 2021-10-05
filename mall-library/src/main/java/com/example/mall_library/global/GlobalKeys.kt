@@ -8,4 +8,6 @@ enum class GlobalKeys
     API_HOST,
     APPLICATION_CONTEXT,
 
+    LOADER_DELAYED       //模拟网络延迟，最后不需要
+
 }
