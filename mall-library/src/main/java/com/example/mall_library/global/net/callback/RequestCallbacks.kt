@@ -48,8 +48,6 @@ class RequestCallbacks (
            // HANDLER.postDelayed({MallLoader.stopLoading()},delayed)
            // HANDLER.postDelayed({MallLoader.stopLoading()},delayed)    //???
             //new Runnable()--这里好像不行？
-
-
         }
     }
 
